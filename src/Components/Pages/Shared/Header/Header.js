@@ -6,7 +6,7 @@ import logo from '../../../../assets/logo.png'
 const Header = () => {
     return (
         <div className='bg-secondary'>
-            <div className="navbar  mx-auto pt-16 px-32">
+            <div className="navbar  mx-auto pt-16 lg:px-32">
 
                 <div className="navbar-start">
 
@@ -17,11 +17,12 @@ const Header = () => {
                         </label>
                         <ul tabIndex="0"
                             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><Link to=''>Home</Link></li>
+                            <li><Link to='/home'>Home</Link></li>
                             <li><Link to=''>About us</Link></li>
                             <li><Link to=''>Projects</Link></li>
                             <li><Link to=''>Contact</Link></li>
                             <li > <Link to=''>Admin</Link></li>
+                            <Link to='' className="btn btn-primary px-11">Login</Link>
                         </ul>
                     </div>
 
@@ -35,14 +36,14 @@ const Header = () => {
                 {/* --------------- Deskstop --------------- */}
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
-                        <li><Link to=''>Home</Link></li>
+                        <li><Link to='/home'>Home</Link></li>
                         <li><Link to=''>About us</Link></li>
                         <li><Link to=''>Projects</Link></li>
                         <li><Link to=''>Contact</Link></li>
                         <li > <Link to=''>Admin</Link></li>
                     </ul>
                 </div>
-                <div className="navbar-end">
+                <div className="navbar-end hidden lg:flex">
                     <Link to='' className="btn btn-primary px-11">Login</Link>
                 </div>
 

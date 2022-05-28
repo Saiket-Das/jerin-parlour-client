@@ -6,8 +6,8 @@ import './Overview.css'
 const Overview = () => {
     return (
         <div className='bg-secondary'>
-            <div className='mx-auto py-9 px-36'>
-                <div className='flex justify-between mt-20'>
+            <div className='mx-auto py-9 lg:px-36'>
+                <div className='lg:flex justify-between mt-20'>
                     {/* -------------- IMAGE -------------- */}
                     <div>
                         <img className='overview-img' src={overviewIMG} alt="" />

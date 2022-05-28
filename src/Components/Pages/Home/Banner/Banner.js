@@ -6,7 +6,7 @@ const Banner = () => {
     return (
         <div className='bg-secondary'>
 
-            <div className=' mx-auto py-9 px-36'>
+            <div className=' mx-auto py-9 lg:px-36 p-8'>
 
                 <div className='flex justify-between items-center'>
 
