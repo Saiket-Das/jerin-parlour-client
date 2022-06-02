@@ -4,7 +4,7 @@
         "name": "Anti Age Face Treatment",
         "price": 25,
         "description": "We craft stunning and amazing web UI, using a well drrafted UX to fit your product.",
-        "img": "https://cdn-icons.flaticon.com/png/512/2763/premium/2763460.png?token=exp=1653656059~hmac=db5ad77ba0e5e4baa6eca7eb41afef0d",
+        "img": "https://cdn-icons-png.flaticon.com/512/1940/1940922.png",
         "image": "../src/assets/Icon/group1.png"
     },
     {
@@ -20,7 +20,7 @@
         "name": "Skin Care Treatment",
         "price": 25,
         "description": "With well written codes, we build amazing apps for all platforms, mobile and web apps in general.",
-        "img": "https://cdn-icons.flaticon.com/png/512/3258/premium/3258599.png?token=exp=1653656145~hmac=9f07bb8e56901c7497c7329854efdfc5",
+        "img": "https://cdn-icons-png.flaticon.com/512/1940/1940922.png",
         "image": "../src/assets/Icon/group3.png"
     }
 ]

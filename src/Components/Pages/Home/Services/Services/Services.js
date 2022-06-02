@@ -5,7 +5,7 @@ import Service from '../Service/Service';
 
 const Services = () => {
 
-    const [service, setServices] = useState([]);
+    const [services, setServices] = useState([]);
     useEffect(() => {
         fetch('services.json')
             .then(res => res.json())
@@ -21,7 +21,7 @@ const Services = () => {
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-28'>
                 {
-                    service.map(service =>
+                    services.map(service =>
                         <Service
                             key={service._id}
                             service={service}
