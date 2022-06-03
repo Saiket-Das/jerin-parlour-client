@@ -1,0 +1,21 @@
+input[type=email],
+input[type=text],
+input[type=password] {
+    /* padding: 12px 20px; */
+    /* margin: 8px 0; */
+    border: none;
+    border-bottom: 2px solid rgb(183, 183, 183);
+}
+
+input[type=email]::placeholder,
+input[type=text]::placeholder,
+input[type=password]::placeholder {
+    text-align: start;
+    color: rgb(112, 112, 112);
+}
+
+input[type=email]:focus,
+input[type=text]:focus,
+input[type=password]:focus {
+    border-bottom: 0px solid;
+}

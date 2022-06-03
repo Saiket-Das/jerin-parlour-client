@@ -6,7 +6,7 @@ import logo from '../../../../assets/logo.png'
 const Header = () => {
     return (
         <div className='bg-secondary'>
-            <div className="navbar  mx-auto pt-16 lg:px-32">
+            <div className="navbar  mx-auto p-8 lg:px-32">
 
                 <div className="navbar-start">
 
@@ -44,7 +44,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end hidden lg:flex">
-                    <Link to='' className="btn btn-primary px-11">Login</Link>
+                    <Link to='/login' className="btn btn-primary px-11">Login</Link>
                 </div>
 
 
