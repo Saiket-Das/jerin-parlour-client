@@ -1,15 +1,72 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import auth from '../../../../firebase.init';
+import googlePng from '../../../../assets/Icon/google.png'
+
 
 
 
 const Login = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const [
+        signInWithEmailAndPassword, emailUser, emailLoading, emailError,
+    ] = useSignInWithEmailAndPassword(auth);
+    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
 
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const navigate = useNavigate()
+
+
+    let errorMsg;
+    if (emailError || googleError) {
+
+        // EMAIL LOGIN ERROR CUSTOMIZE 
+        if (emailError) {
+            if (emailError.code === "auth/user-not-found") {
+                errorMsg = <p
+                    className='text-center text-red-500 font-semibold bg-red-200 p-3 rounded-lg'>
+                    Username is not found
+                </p>
+            }
+            else if (emailError.code === "auth/wrong-password") {
+                errorMsg = <p
+                    className='text-center text-red-500 font-semibold bg-red-200 p-3 rounded-lg'>
+                    Incorrect password
+                </p>
+            }
+
+            else if (emailError.code === "auth/too-many-requests") {
+                errorMsg = <p
+                    className='text-center text-red-500 font-semibold bg-red-200 p-3 rounded-lg'>
+                    Account has been temporarily disabled due to many failed login attempts
+                </p>
+            }
+        }
+
+        // GOOGLE LOGIN ERROR CUSTOMIZE 
+        if (googleError) {
+            if (googleError.code === "auth/popup-closed-by-user") {
+                errorMsg = <p
+                    className='text-center text-red-500 font-semibold bg-red-200 p-3 rounded-lg'>
+                    Popup closed!
+                </p>
+            }
+        }
+
+    }
+
+    if (emailLoading || googleLoading) {
+        return <p>Loading...</p>;
+    }
+
+    if (emailUser || googleUser) {
+        navigate('/')
+    }
 
     const onSubmit = (data) => {
-        console.log(data)
+        console.log(data);
+        signInWithEmailAndPassword(data.email, data.password);
     };
 
     return (
@@ -77,13 +134,33 @@ const Login = () => {
                             <input className='btn btn-primary w-full max-w-xs mt-4 text-white' type="submit" value="Login" />
 
                         </form>
-                        {/* {errorMsg} */}
 
-                        <p className='text-center'>Don't have an account?
+
+                        {/* ERROR MESSAGE  */}
+                        {errorMsg}
+
+
+                        {/* SIGN UP LINK  */}
+                        <p className='text-center mt-1'>Don't have an account?
                             <span className='text-primary'>
                                 <Link to='/signup'> Signup</Link>
                             </span>
                         </p>
+
+                        <div className="divider">OR</div>
+
+
+                        {/* LOGIN WITH GOOGLE */}
+                        <button
+                            onClick={() => signInWithGoogle()}
+                            className="btn btn-outline btn-success">
+
+                            <div className='flex items-center gap-10'>
+                                <img className='w-8' src={googlePng} alt="" />
+                                <p>Continue with Google</p>
+                                <p></p>
+                            </div>
+                        </button>
 
                     </div>
                 </div>

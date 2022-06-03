@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../../../assets/logo.png'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../../firebase.init';
@@ -12,9 +12,11 @@ import { faUser } from '@fortawesome/free-solid-svg-icons'
 
 const Header = () => {
     const [user] = useAuthState(auth);
+    const navigate = useNavigate();
 
     const logOut = () => {
         signOut(auth);
+        navigate('/login')
         localStorage.removeItem('accessToken');
     };
 
@@ -36,7 +38,30 @@ const Header = () => {
                             <li><Link to=''>Projects</Link></li>
                             <li><Link to=''>Contact</Link></li>
                             <li > <Link to=''>Admin</Link></li>
-                            <Link to='' className="btn btn-primary px-11">Login</Link>
+                            {
+                                user
+                                    ?
+                                    <>
+
+                                        <div className='dropdown dropdown-end'>
+                                            <label className='font-semibold' tabIndex="1" >
+                                                <span className='px-1'>{user.displayName}</span>
+                                                <span>
+                                                    <FontAwesomeIcon icon={faUser}
+                                                        className='text-primary'
+                                                    />
+                                                </span>
+                                            </label>
+
+                                            <ul tabIndex="1" className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                                                <li><Link to='/myProfile'>My Profile</Link> </li>
+                                                <li><button onClick={logOut}>Sign out</button> </li>
+                                            </ul>
+                                        </div>
+                                    </>
+                                    :
+                                    <Link to='/login' className="btn btn-primary px-11">Login</Link>
+                            }
                         </ul>
                     </div>
 

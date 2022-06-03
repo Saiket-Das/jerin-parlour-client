@@ -1,16 +1,19 @@
 import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../../../firebase.init'
 import './Signup.css'
 import { Link, useNavigate } from 'react-router-dom';
+import googlePng from '../../../../assets/Icon/google.png'
 
 
 
 const Signup = () => {
     const [
         createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
+    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const password = useRef({});
@@ -46,9 +49,9 @@ const Signup = () => {
         <div>
 
             <div className='flex justify-center items-center lg:mt-16 mt-10 lg:p-0 p-5'>
-                <div className='card border w-96 '>
+                <div className='card border w-96 mb-16'>
                     <div className='card-body'>
-                        <h2 className="text-center text-2xl font-bold">Create your account </h2>
+                        <h2 className="text-center text-2xl font-bold">Create an account </h2>
 
                         {/* ----------- FORM  -----------  */}
                         <form onSubmit={handleSubmit(onSubmit)}>
@@ -175,6 +178,18 @@ const Signup = () => {
                         </p>
 
                         <div className="divider">OR</div>
+
+                        {/* LOGIN WITH GOOGLE */}
+                        <button
+                            onClick={() => signInWithGoogle()}
+                            className="btn btn-outline">
+
+                            <div className='flex justify-around items-center gap-10'>
+                                <img className='w-8' src={googlePng} alt="" />
+                                <p>Continue with Google</p>
+                                <p></p>
+                            </div>
+                        </button>
 
                     </div>
                 </div>
