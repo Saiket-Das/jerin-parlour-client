@@ -1,13 +1,47 @@
 import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useUpdateProfile } from 'react-firebase-hooks/auth';
+import auth from '../../../../firebase.init'
 import './Signup.css'
+import { Link, useNavigate } from 'react-router-dom';
+
 
 
 const Signup = () => {
+    const [
+        createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const password = useRef({});
     password.current = watch("password", "");
-    const onSubmit = data => console.log(data);
+    const navigate = useNavigate()
+
+    let errorMsg;
+    if (error || updateError) {
+        return errorMsg = <p className='text-center text-red-500 uppercase font-semibold'>
+            {error?.message.slice(22, -2)}
+        </p>
+    }
+    if (loading || updating) {
+        return <p>Loading...</p>;
+    }
+
+    if (user) {
+        navigate('/')
+    }
+
+    const onSubmit = async (data) => {
+        console.log(data)
+        const name = data.firstname + ' ' + data.lastname;
+        console.log(name)
+        console.log(typeof name)
+        await createUserWithEmailAndPassword(data.email, data.password);
+        await updateProfile({ displayName: name });
+    };
+
+
+
     return (
         <div>
 
@@ -132,13 +166,15 @@ const Signup = () => {
                             <input className='btn btn-primary w-full max-w-xs mt-4 text-white' type="submit" value="Create an account" />
 
                         </form>
-
+                        {errorMsg}
 
                         <p className='text-center'>Already have an account?
-                            <span className='text-primary'> Login here</span>
+                            <span className='text-primary'>
+                                <Link to='/login'> Login here</Link>
+                            </span>
                         </p>
 
-                        <div class="divider">OR</div>
+                        <div className="divider">OR</div>
 
                     </div>
                 </div>

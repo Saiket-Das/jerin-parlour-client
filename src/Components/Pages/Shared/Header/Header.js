@@ -1,9 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../../assets/logo.png'
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../../firebase.init';
+import { signOut } from 'firebase/auth';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
+
+
 
 
 const Header = () => {
+    const [user] = useAuthState(auth);
+
+    const logOut = () => {
+        signOut(auth);
+        localStorage.removeItem('accessToken');
+    };
+
     return (
         <div className='bg-secondary'>
             <div className="navbar  mx-auto p-8 lg:px-32">
@@ -44,7 +58,30 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end hidden lg:flex">
-                    <Link to='/login' className="btn btn-primary px-11">Login</Link>
+                    {
+                        user
+                            ?
+                            <>
+
+                                <div className='dropdown dropdown-end'>
+                                    <label className='font-semibold' tabIndex="0" >
+                                        <span className='px-1'>{user.displayName}</span>
+                                        <span>
+                                            <FontAwesomeIcon icon={faUser}
+                                                className='text-primary'
+                                            />
+                                        </span>
+                                    </label>
+
+                                    <ul tabIndex="0" className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                                        <li><Link to='/myProfile'>My Profile</Link> </li>
+                                        <li><button onClick={logOut}>Sign out</button> </li>
+                                    </ul>
+                                </div>
+                            </>
+                            :
+                            <Link to='/login' className="btn btn-primary px-11">Login</Link>
+                    }
                 </div>
 
 
