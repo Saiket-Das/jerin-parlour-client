@@ -1,64 +1,74 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCloudArrowUp } from '@fortawesome/free-solid-svg-icons'
+import upload from '../../../../../assets/Icon/cloud-upload-outline 1.png'
+import './AddService.css'
+
+
+
 
 const AddService = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = (data) => {
         console.log(data);
+        reset()
     };
     return (
-        <div className='w-full bg-red-100'>
+        <div className='w-full bg-base-100'>
 
             {/* ----------- FORM  -----------  */}
             <form onSubmit={handleSubmit(onSubmit)} className='p-9'>
 
                 {/* ----------- USER NAME  -----------  */}
-                <div className='flex items-center gap-96'>
+                <div className='lg:flex md:flex items-center lg:gap-72 md:gap-24'>
                     <div className="form-control w-full max-w-xs">
-                        <label class="label">
-                            <span class="label-text">Service title</span>
+                        <label className="label">
+                            <span className="label-text font-semibold">Service title</span>
                         </label>
                         <input
-                            type="name"
-                            placeholder="Your name"
-                            className="input review-name"
-                            {...register("name", {
+                            type="text"
+                            placeholder="Enter title"
+                            className="input  input-bordered add-service-title"
+                            {...register("productName", {
                                 required: {
                                     value: true,
-                                    message: 'name is required'
+                                    message: 'Title is required'
                                 }
                             })}
                         />
                         <label className="label">
-                            {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
+                            {errors.productName?.type === 'required' && <span className="label-text-alt text-red-500">{errors.productName.message}</span>}
                         </label>
                     </div>
 
 
 
-                    {/* ----------- USER EMAIL  -----------  */}
+                    {/* ----------- SERVICE IMAGE  -----------  */}
                     <div className="form-control w-full max-w-xs">
-                        <label class="label">
-                            <span class="label-text">What is your name?</span>
-                        </label>
-                        <input
-                            type="img"
-                            placeholder="Your email"
-                            className="input w-full max-w-xs"
-                            {...register("email", {
-                                required: {
-                                    value: true,
-                                    message: 'Email is required'
-                                },
-                                pattern: {
-                                    value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
-                                    message: 'Provide a valid Email'
-                                }
-                            })}
-                        />
                         <label className="label">
-                            {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
-                            {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                            <span className="label-text font-semibold">Image</span>
+                        </label>
+
+
+                        <div className='border border-primary rounded-lg add-service-icon-image flex justify-center items-center pb-1'>
+                            <FontAwesomeIcon
+                                icon={faCloudArrowUp} className='text-primary mt-1' />
+
+                            {/* <img className='w-6 mt-1' src={upload} alt="" /> */}
+                            <input
+                                type="file"
+                                className="input w-24 add-service-image input-xs"
+                                {...register("image", {
+                                    required: {
+                                        value: true,
+                                        message: 'Image is required'
+                                    }
+                                })}
+                            />
+                        </div>
+                        <label className="label">
+                            {errors.image?.type === 'required' && <span className="label-text-alt text-red-500">{errors.image.message}</span>}
                         </label>
                     </div>
                 </div>
@@ -66,27 +76,22 @@ const AddService = () => {
 
                 {/* ----------- DESCRIPTION  -----------  */}
                 <div className="form-control w-full max-w-xs">
-                    <label class="label">
-                        <span class="label-text">What is your name?</span>
+                    <label className="label">
+                        <span className="label-text font-semibold">Description</span>
                     </label>
                     <textarea
                         type="text"
                         placeholder="Description"
-                        className="textarea review-comment"
-                        {...register("password", {
+                        className="textarea textarea-bordered add-service-comment"
+                        {...register("description", {
                             required: {
                                 value: true,
-                                message: 'Password is required'
+                                message: 'Description is required'
                             },
-                            minLength: {
-                                value: 6,
-                                message: 'Must be 6 characters or longer'
-                            }
                         })}
                     />
                     <label className="label">
-                        {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
-                        {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
+                        {errors.description?.type === 'required' && <span className="label-text-alt text-red-500">{errors.description.message}</span>}
                     </label>
                 </div>
 

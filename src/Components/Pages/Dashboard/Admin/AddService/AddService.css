@@ -1,0 +1,65 @@
+/* ----------------- TITLE ----------------- */
+.add-service-title {
+    width: 450px;
+    height: 40px;
+}
+
+
+/* ----------------- IMAGE ----------------- */
+
+.add-service-image::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+.add-service-icon-image {
+    width: 170px;
+    height: 40px;
+    background-color: #FFEAF3;
+}
+
+.add-service-image {
+    background-color: #FFEAF3;
+}
+
+.add-service-image::before {
+    content: 'Upload image';
+    font-weight: 500;
+    color: #F63E7B;
+}
+
+
+
+/* --------------- COMMENT ------------------ */
+.add-service-comment {
+    width: 450px;
+    height: 150px;
+}
+
+
+@media only screen and (max-width: 850px) {
+
+    .add-service-title {
+        width: 350px;
+        height: 40px;
+    }
+
+    .add-service-comment {
+        width: 350px;
+        height: 150px;
+    }
+}
+
+
+@media only screen and (max-width: 450px) {
+
+    .add-service-title {
+        width: 220px;
+        height: 40px;
+    }
+
+
+    .add-service-comment {
+        width: 220px;
+        height: 150px;
+    }
+}
