@@ -42,22 +42,8 @@ const Header = () => {
                                 user
                                     ?
                                     <>
-
-                                        <div className='dropdown dropdown-end'>
-                                            <label className='font-semibold' tabIndex="1" >
-                                                <span className='px-1'>{user.displayName}</span>
-                                                <span>
-                                                    <FontAwesomeIcon icon={faUser}
-                                                        className='text-primary'
-                                                    />
-                                                </span>
-                                            </label>
-
-                                            <ul tabIndex="1" className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                                                <li><Link to='/myProfile'>My Profile</Link> </li>
-                                                <li><button onClick={logOut}>Sign out</button> </li>
-                                            </ul>
-                                        </div>
+                                        <li><Link to='/myProfile'>My Profile</Link> </li>
+                                        <li><button onClick={logOut}>Sign out</button> </li>
                                     </>
                                     :
                                     <Link to='/login' className="btn btn-primary px-11">Login</Link>
