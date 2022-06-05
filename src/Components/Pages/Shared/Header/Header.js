@@ -21,7 +21,7 @@ const Header = () => {
     };
 
     return (
-        <div className='bg-secondary'>
+        <div className=''>
             <div className="navbar  mx-auto p-8 lg:px-32">
 
                 <div className="navbar-start">
@@ -37,7 +37,7 @@ const Header = () => {
                             <li><Link to=''>About us</Link></li>
                             <li><Link to=''>Projects</Link></li>
                             <li><Link to=''>Contact</Link></li>
-                            <li > <Link to=''>Admin</Link></li>
+                            <li > <Link to='/dashboard'>Dashboard</Link></li>
                             {
                                 user
                                     ?
@@ -79,7 +79,7 @@ const Header = () => {
                         <li><Link to=''>About us</Link></li>
                         <li><Link to=''>Projects</Link></li>
                         <li><Link to=''>Contact</Link></li>
-                        <li > <Link to=''>Admin</Link></li>
+                        <li ><Link to='/dashboard'>Dashboard</Link></li>
                     </ul>
                 </div>
                 <div className="navbar-end hidden lg:flex">
@@ -110,6 +110,11 @@ const Header = () => {
                 </div>
 
 
+                <div className="navbar-end lg:hidden flex">
+                    <label htmlFor="dashboard-sidebar" tabIndex="1" className="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                    </label>
+                </div>
             </div>
 
         </div>

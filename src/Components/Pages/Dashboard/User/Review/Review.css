@@ -1,0 +1,40 @@
+.review-name,
+.review-email {
+    width: 570px;
+    height: 60px;
+}
+
+.review-comment {
+    width: 570px;
+    height: 150px;
+}
+
+
+@media only screen and (max-width: 850px) {
+
+    .review-name,
+    .review-email {
+        width: 360px;
+        height: 60px;
+    }
+
+    .review-comment {
+        width: 360px;
+        height: 150px;
+    }
+}
+
+
+@media only screen and (max-width: 450px) {
+
+    .review-name,
+    .review-email {
+        width: 300px;
+        height: 60px;
+    }
+
+    .review-comment {
+        width: 300px;
+        height: 150px;
+    }
+}

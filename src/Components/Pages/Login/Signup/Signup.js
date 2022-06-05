@@ -21,16 +21,16 @@ const Signup = () => {
     const navigate = useNavigate()
 
     let errorMsg;
-    if (error || updateError) {
+    if (error || updateError || googleError) {
         return errorMsg = <p className='text-center text-red-500 uppercase font-semibold'>
             {error?.message.slice(22, -2)}
         </p>
     }
-    if (loading || updating) {
+    if (loading || updating || googleLoading) {
         return <p>Loading...</p>;
     }
 
-    if (user) {
+    if (user || googleUser) {
         navigate('/')
     }
 
@@ -61,7 +61,7 @@ const Signup = () => {
                                 <input
                                     type="text"
                                     placeholder="First Name"
-                                    className="input rounded-none input-black w-full max-w-xs p-0"
+                                    className="input rounded-none input-black w-full max-w-xs p-0 signup-firstName"
                                     {...register("firstname", {
                                         required: {
                                             value: true,
@@ -81,7 +81,7 @@ const Signup = () => {
                                 <input
                                     type="text"
                                     placeholder="Last Name"
-                                    className="input rounded-none input-black w-full max-w-xs p-0 "
+                                    className="input rounded-none input-black w-full max-w-xs p-0 signup-lastName"
                                     {...register("lastname", {
                                         required: {
                                             value: true,
@@ -100,7 +100,7 @@ const Signup = () => {
                                 <input
                                     type="email"
                                     placeholder="Username or Email"
-                                    className="input rounded-none input-black w-full max-w-xs p-0"
+                                    className="input rounded-none input-black w-full max-w-xs p-0 signup-email"
                                     {...register("email", {
                                         required: {
                                             value: true,
@@ -125,7 +125,7 @@ const Signup = () => {
                                 <input
                                     type="password"
                                     placeholder="Password"
-                                    className="input rounded-none input-black w-full max-w-xs p-0"
+                                    className="input rounded-none input-black w-full max-w-xs p-0 signup-password"
                                     {...register("password", {
                                         required: {
                                             value: true,
@@ -150,7 +150,7 @@ const Signup = () => {
                                 <input
                                     type="password"
                                     placeholder="Confirm Password"
-                                    className="input rounded-none input-black w-full max-w-xs p-0"
+                                    className="input rounded-none input-black w-full max-w-xs p-0 signup-confirmPass"
                                     name="confirmPassword"
                                     {...register("confirmPassword", {
                                         validate: value =>

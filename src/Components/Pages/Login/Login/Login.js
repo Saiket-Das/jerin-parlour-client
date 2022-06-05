@@ -86,7 +86,7 @@ const Login = () => {
                                 <input
                                     type="email"
                                     placeholder="Username or Email"
-                                    className="input rounded-none input-black w-full max-w-xs p-0"
+                                    className="input rounded-none input-black w-full max-w-xs p-0 login-email"
                                     {...register("email", {
                                         required: {
                                             value: true,
@@ -111,7 +111,7 @@ const Login = () => {
                                 <input
                                     type="password"
                                     placeholder="Password"
-                                    className="input rounded-none input-black w-full max-w-xs p-0"
+                                    className="input rounded-none input-black w-full max-w-xs p-0 login-password"
                                     {...register("password", {
                                         required: {
                                             value: true,
