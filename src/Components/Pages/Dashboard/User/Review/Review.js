@@ -61,7 +61,7 @@ const Review = () => {
                 </div>
 
 
-                {/* ----------- PASSWORD  -----------  */}
+                {/* ----------- COMMENT  -----------  */}
                 <div className="form-control w-full max-w-xs">
                     <textarea
                         type="text"
@@ -86,7 +86,7 @@ const Review = () => {
 
 
 
-                <input className='btn btn-primary w-full max-w-xs mt-4 text-white' type="submit" value="Login" />
+                <input className='btn btn-primary w-56 max-w-xs mt-4 text-white' type="submit" value="Submit" />
 
             </form>
 

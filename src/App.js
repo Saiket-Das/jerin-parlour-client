@@ -1,5 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import AddService from './Components/Pages/Dashboard/Admin/AddService/AddService';
+import MakeAdmin from './Components/Pages/Dashboard/Admin/MakeAdmin/MakeAdmin';
 import Dashboard from './Components/Pages/Dashboard/Dashboard/Dashboard';
 import Book from './Components/Pages/Dashboard/User/Book/Book';
 import BookingList from './Components/Pages/Dashboard/User/BookingList/BookingList';
@@ -33,10 +35,16 @@ function App() {
         <Route path='/dashboard' element={
           <Dashboard></Dashboard>}>
 
-          {/* DASHBOARD NESTED ROUTE */}
+          {/* DASHBOARD NESTED ROUTE ----- USER */}
           <Route index element={<Book></Book>}></Route>
           <Route path='bookingList' element={<BookingList></BookingList>}></Route>
           <Route path='review' element={<Review></Review>}></Route>
+
+
+          {/* DASHBOARD NESTED ROUTE ----- ADMIN */}
+          <Route path='addService' element={<AddService></AddService>}></Route>
+          <Route path='makeAdmin' element={<MakeAdmin></MakeAdmin>}></Route>
+
 
         </Route>
 
