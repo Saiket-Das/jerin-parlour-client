@@ -2,7 +2,6 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCloudArrowUp } from '@fortawesome/free-solid-svg-icons'
-import upload from '../../../../../assets/Icon/cloud-upload-outline 1.png'
 import './AddService.css'
 
 
