@@ -35,7 +35,6 @@ const Header = () => {
                             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <li><Link to='/home'>Home</Link></li>
                             <li><Link to=''>About us</Link></li>
-                            <li><Link to=''>Projects</Link></li>
                             <li><Link to=''>Contact</Link></li>
                             <li > <Link to='/dashboard'>Dashboard</Link></li>
                             {
@@ -63,7 +62,6 @@ const Header = () => {
                     <ul className="menu menu-horizontal p-0">
                         <li><Link to='/home'>Home</Link></li>
                         <li><Link to=''>About us</Link></li>
-                        <li><Link to=''>Projects</Link></li>
                         <li><Link to=''>Contact</Link></li>
                         <li ><Link to='/dashboard'>Dashboard</Link></li>
                     </ul>

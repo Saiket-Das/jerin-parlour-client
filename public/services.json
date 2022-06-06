@@ -1,26 +1,20 @@
 [
     {
-        "_id": 1,
         "name": "Anti Age Face Treatment",
         "price": 25,
         "description": "We craft stunning and amazing web UI, using a well drrafted UX to fit your product.",
-        "img": "https://cdn-icons-png.flaticon.com/512/1940/1940922.png",
-        "image": "../src/assets/Icon/group1.png"
+        "img": "https://cdn-icons.flaticon.com/png/512/1807/premium/1807362.png?token=exp=1654493203~hmac=459f8d6d6a7667313db1adb8d7bf987f"
     },
     {
-        "_id": 2,
         "name": "Hair Color & Styleing",
         "price": 25,
         "description": "Amazing flyers, social media posts and brand representations that would make your brand stand out.",
-        "img": "https://cdn-icons-png.flaticon.com/512/1940/1940922.png",
-        "image": "../src/assets/Icon/group2.png"
+        "img": "https://cdn-icons-png.flaticon.com/512/3461/3461881.png"
     },
     {
-        "_id": 3,
         "name": "Skin Care Treatment",
         "price": 25,
         "description": "With well written codes, we build amazing apps for all platforms, mobile and web apps in general.",
-        "img": "https://cdn-icons-png.flaticon.com/512/1940/1940922.png",
-        "image": "../src/assets/Icon/group3.png"
+        "img": "https://cdn-icons.flaticon.com/png/512/2762/premium/2762765.png?token=exp=1654493162~hmac=b254319ea04c6ddfd404a776101f70fc"
     }
 ]

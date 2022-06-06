@@ -7,14 +7,14 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 const MakeAdmin = () => {
     return (
         <div className='w-full bg-base-100'>
-            <div className="form-control p-9 ">
+            <div className="form-control p-6">
                 <div className="flex justify-center">
 
                     <div className="w-full lg:w-96 md:w-96">
 
                         {/* ENTER EMAIL Label  */}
                         <label className="label">
-                            <span className="label-text font-semibold">Enter email</span>
+                            <span className="label-text text-base font-semibold">Enter email</span>
                         </label>
 
                         {/* SEARCH input + SEARCH Button  */}

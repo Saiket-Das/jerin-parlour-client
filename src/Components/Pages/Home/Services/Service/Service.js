@@ -7,7 +7,7 @@ const Service = (props) => {
     return (
         <div className='mt-16'>
             <div className='text-center service-card card-hover p-9'>
-                <img className='w-20 mb-4 img-center' src={img} alt="" />
+                <img className='w-28 mb-4 img-center' src={img} alt="" />
                 <h3 className='text-2xl font-semibold'>{name}</h3>
                 <p className='text-xl text-primary font-medium'>${price}</p>
                 <p>{description}</p>

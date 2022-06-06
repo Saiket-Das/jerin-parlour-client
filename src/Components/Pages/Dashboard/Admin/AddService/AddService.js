@@ -23,7 +23,7 @@ const AddService = () => {
                 <div className='lg:flex md:flex items-center lg:gap-72 md:gap-24'>
                     <div className="form-control w-full max-w-xs">
                         <label className="label">
-                            <span className="label-text font-semibold">Service title</span>
+                            <span className="label-text font-semibold text-base">Service title</span>
                         </label>
                         <input
                             type="text"
@@ -46,7 +46,7 @@ const AddService = () => {
                     {/* ----------- SERVICE IMAGE  -----------  */}
                     <div className="form-control w-full max-w-xs">
                         <label className="label">
-                            <span className="label-text font-semibold">Image</span>
+                            <span className="label-text font-semibold text-base">Image</span>
                         </label>
 
 
@@ -76,7 +76,7 @@ const AddService = () => {
                 {/* ----------- DESCRIPTION  -----------  */}
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
-                        <span className="label-text font-semibold">Description</span>
+                        <span className="label-text font-semibold text-base">Description</span>
                     </label>
                     <textarea
                         type="text"
